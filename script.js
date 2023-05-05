@@ -11,7 +11,7 @@ function playRound(playerSelection, computerSelection) {
 
   
   
- function playerSelection () {
+ function getPlayerSelection () {
 
   let playerString = prompt("Rock, paper, scissors?");
   const playerCase = playerString.toUpperCase();
@@ -45,11 +45,15 @@ function getComputerChoice () {
 }
  
 
+
+
+const computer = getComputerChoice();
+const player = getPlayerSelection();
+  
+
   
   
-  
-  
-  
+console.log("You chose " + player + "!", "\nThe computer chose " + computer + "!");
 
 }
 
