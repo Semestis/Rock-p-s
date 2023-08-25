@@ -1,0 +1,44 @@
+
+.Container {
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
+
+.Player, .Middle, .Computer {
+
+    display: flex;
+    align-items: center;
+    border-color: black;
+    padding: 100px;
+    
+
+
+}
+
+.Player {
+    background-color: green;
+}
+
+.Middle {
+
+    background-color: yellow;
+}
+
+.Computer {
+    background-color: red;
+}

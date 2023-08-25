@@ -2,10 +2,8 @@
 
 
 
-
-
-
-
+let compScore = 0;
+let playerScore = 0;
 
 function playRound(playerSelection, computerSelection, getWinner) {
 
@@ -55,20 +53,27 @@ function playRound(playerSelection, computerSelection, getWinner) {
       return "It's a tie!";
     } else if ((computer == "Rock") && (player == "Paper")) {
       return "You won!";
+      console.log(playerScore++);
+
     } else if ((computer == "Rock") && (player == "Scissors")) {
       return "The Computer won!";
+      compScore = ++compScore;
     } 
     if ((computer == "Paper") && (player == "Rock")) {
-      return "The Computer won!";    
+      return "The Computer won!";   
+      compScore = ++compScore; 
     } else if ((computer == "Paper") && (player == "Paper")) {
       return "It's a tie!";
     } else if ((computer == "Paper") && (player == "Scissors")) {
       return "You won!";
+      console.log(playerScore++);
     } 
     if ((computer == "Scissors") && (player == "Rock")) {
-      return "You won!";     
+      return "You won!";
+      console.log(playerScore++);   
     } else if ((computer == "Scissors") && (player == "Paper")) {
       return "The Computer won!";
+      compScore = ++compScore;
     } else if ((computer == "Scissors") && (player == "Scissors")) {
       return "It's a tie!";
     } 
@@ -85,35 +90,14 @@ function playRound(playerSelection, computerSelection, getWinner) {
   console.log("You chose " + player + "!", "\nThe computer chose " + computer + "!\n\n" + winner);
 
 
-
-}
-
-function game () {
-
-  let a = 0;
-  let b = 0;
-  let c = 0;
-  const e = a + 1;
-  const r = b + 1;
-
-  playRound();
-
-
-
-  if (`getWinner() == "You won!") {
-    
-    
-    return "You have " + e +  " point(s)";
-
-   } else if (`getWinner() === "The Computer won!") {
-    return 100;
-    return "Computer have " + r + " point(s)"
-   } else if (`getWinner() === "It's a tie!"`) {
-    return a, b;
-
-   
-   }
-
-
+  function getScore () {
+  
+    if (compScore == 3) {
+      return "The computer have won!";
+    } else if (playerScore == 3) {
+      return "You won this time!";
+    }
+  }
+  
 
 }
