@@ -1,93 +1,99 @@
 
 
+const rockButton = document.querySelector('#pick1');
+const paperButton = document.querySelector('#pick2');
+const scissorButton = document.querySelector('#pick3')
+const outcomeDiv = document.querySelector('.outcome');
 
 
 let compScore = 0;
 let playerScore = 0;
 
-function playRound(playerSelection, computerSelection, getWinner) {
 
+
+
+
+  function playRound(PlayerSelection, ComputerChoice)  {
+
+  if (ComputerChoice == PlayerSelection) {
+    const p = document.createElement('p')
+    p.innerHTML = "It's a tie!"
+  } else if ((ComputerChoice == "Rock") && (PlayerSelection == "Paper")) {
+    console.log(playerScore++);
+    const p = document.createElement('p')
+    p.innerText = "You won!";
+  } else if ((ComputerChoice == "Rock") && (PlayerSelection == "Scissors")) {
+    const p = document.createElement('p')
+    p.innerText = "The Computer won!"
+    compScore = ++compScore;
+  } 
+  if ((ComputerChoice == "Paper") && (PlayerSelection == "Rock")) {
+    const p = document.createElement('p')
+    p.innerHTML = "The Computer won!"
+    compScore = ++compScore; 
+  } else if ((ComputerChoice == "Paper") && (PlayerSelection == "Scissors")) {
+    const p = document.createElement('p')
+    p.innerText = "You won!";
+    console.log(playerScore++);
+  } 
+  if ((ComputerChoice == "Scissors") && (PlayerSelection == "Rock")) {
+    const p = document.createElement('p')
+    p.innerText = "You won!";
+    console.log(playerScore++);   
+  } else if ((ComputerChoice == "Scissors") && (PlayerSelection == "Paper")) {
+    const p = document.createElement('p')
+    p.innerText = "The Computer won!"
+    compScore = ++compScore;
+ 
+  } 
+ 
+  }
+
+
+  rockButton.addEventListener('click', () => {
+
+    const PlayerSelection = 'Rock';
+    const ComputerChoice = getComputerChoice();
+    playRound(PlayerSelection, ComputerChoice);
+   
+   console.log(PlayerSelection)
+   console.log(getComputerChoice())
+   
+  
+  
+  })
   
 
 
 
- function getPlayerSelection () {
+ function getPlayerSelection (rock, paper, scissors) {
 
-  let playerString = prompt("Rock, paper or scissors?");
-  const playerCase = playerString.toUpperCase();
-
-  if (playerCase == "ROCK") {
-
-    return "Rock";
-  } if (playerCase == "PAPER") {
-    return "Paper";
-  } if (playerCase == "SCISSORS") {
-    return "Scissors";
-  } else if (playerCase != true) {
-    getPlayerSelection();
-  }
  } 
+
+
+
 
   
   
   function getComputerChoice () {
-  
-  const computerString = ("hot");
-  const computerSelection = Math.floor(Math.random() * computerString.length + 1);
-
-  if (computerSelection == 1) {
-    return "Rock";
-  } if (computerSelection == 2) { 
-    return "Paper";
-  } if (computerSelection == 3) { 
-    return "Scissors";
+    const arrOfChoices = ['rock', 'paper', 'scissors']
+    const randomNum = Math.floor(Math.random()* arrOfChoices.length)
+    return arrOfChoices[randomNum]
   }
-}
  
 
 
 
-  function getWinner() {
 
-    if ((computer == "Rock") && (player == "Rock")) {
-      return "It's a tie!";
-    } else if ((computer == "Rock") && (player == "Paper")) {
-      return "You won!";
-      console.log(playerScore++);
 
-    } else if ((computer == "Rock") && (player == "Scissors")) {
-      return "The Computer won!";
-      compScore = ++compScore;
-    } 
-    if ((computer == "Paper") && (player == "Rock")) {
-      return "The Computer won!";   
-      compScore = ++compScore; 
-    } else if ((computer == "Paper") && (player == "Paper")) {
-      return "It's a tie!";
-    } else if ((computer == "Paper") && (player == "Scissors")) {
-      return "You won!";
-      console.log(playerScore++);
-    } 
-    if ((computer == "Scissors") && (player == "Rock")) {
-      return "You won!";
-      console.log(playerScore++);   
-    } else if ((computer == "Scissors") && (player == "Paper")) {
-      return "The Computer won!";
-      compScore = ++compScore;
-    } else if ((computer == "Scissors") && (player == "Scissors")) {
-      return "It's a tie!";
-    } 
-   
-  }
+const computer = getComputerChoice();
 
-  const computer = getComputerChoice();
-  const player = getPlayerSelection();
-  const winner = getWinner();
+const winner = playRound();
   
 
   
   
-  console.log("You chose " + player + "!", "\nThe computer chose " + computer + "!\n\n" + winner);
+  //console.log("You chose " + player + "!", "\nThe computer chose " + computer + "!\n\n" + winner);
 
 
   function getScore () {
@@ -100,4 +106,4 @@ function playRound(playerSelection, computerSelection, getWinner) {
   }
   
 
-}
+
