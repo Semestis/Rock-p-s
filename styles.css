@@ -1,6 +1,6 @@
 
 .Container {
-    background-color: aqua;
+    
     display: flex;
     flex-direction: row;
     height: 1000px;
@@ -17,7 +17,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
+    
 }
 
 .Player, .Middle, .Computer {
@@ -88,4 +88,10 @@ body {
 #pick3 {
 
     background-color: blue;
+}
+
+.outcome {
+
+    height: 300px;
+    width: 300px;
 }
