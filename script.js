@@ -4,10 +4,13 @@ const rockButton = document.querySelector('#pick1');
 const paperButton = document.querySelector('#pick2');
 const scissorButton = document.querySelector('#pick3')
 const outcomeDiv = document.querySelector('.outcome');
+const roundEnd = document.querySelector('#Computer')
+const playerScoreSpan = document.querySelector('.player-Score')
+const computerScoreSpan = document.querySelector('.computer-Score')
 
 
-//let compScore = 0;
-//let playerScore = 0;
+let compScore = 0;
+let playerScore = 0;
 
 
 
@@ -23,28 +26,34 @@ const outcomeDiv = document.querySelector('.outcome');
     const p = document.createElement('p')
     p.innerText = "You won!";
     outcomeDiv.appendChild(p)
+    playerScore++
   } else if (ComputerChoice ==='Rock' && PlayerSelection === 'Scissors') {
     const p = document.createElement('p')
     p.innerText = "The Computer won!"
     outcomeDiv.appendChild(p)
+    compScore++
   } 
   if (ComputerChoice === 'Paper' && PlayerSelection === 'Rock') {
     const p = document.createElement('p')
     p.innerHTML = "The Computer won!"
     outcomeDiv.appendChild(p)
+    compScore++
   } else if (ComputerChoice === "Paper" && PlayerSelection === "Scissors") {
     const p = document.createElement('p')
     p.innerText = "You won!";
     outcomeDiv.appendChild(p)
+    playerScore++
   } 
   if (ComputerChoice === "Scissors" && PlayerSelection === "Rock") {
     const p = document.createElement('p')
     p.innerText = "You won!";
-    outcomeDiv.appendChild(p)  
+    outcomeDiv.appendChild(p)
+    playerScore++  
   } else if (ComputerChoice === "Scissors" && PlayerSelection === "Paper") {
     const p = document.createElement('p')
     p.innerText = "The Computer won!"
     outcomeDiv.appendChild(p)
+    compScore++
  
   } 
  
@@ -56,9 +65,9 @@ const outcomeDiv = document.querySelector('.outcome');
     const PlayerSelection = 'Rock';
     const ComputerChoice = getComputerChoice();
     playRound(PlayerSelection, ComputerChoice);
+    getScore(compScore, playerScore)
 
-    console.log(PlayerSelection)
-    console.log(ComputerChoice)
+
     
   
   })
@@ -68,8 +77,7 @@ const outcomeDiv = document.querySelector('.outcome');
     const PlayerSelection = 'Paper';
     const ComputerChoice = getComputerChoice();
     playRound(PlayerSelection, ComputerChoice);
-    console.log(PlayerSelection)
-    console.log(ComputerChoice)
+    getScore(compScore, playerScore)
     
   
   })
@@ -79,9 +87,7 @@ const outcomeDiv = document.querySelector('.outcome');
     const PlayerSelection = 'Scissors';
     const ComputerChoice = getComputerChoice();
     playRound(PlayerSelection, ComputerChoice);
-    console.log(PlayerSelection)
-    console.log(ComputerChoice)
-    
+    getScore(compScore, playerScore)
   
   })
   
@@ -114,12 +120,19 @@ const outcomeDiv = document.querySelector('.outcome');
   //console.log("You chose " + player + "!", "\nThe computer chose " + computer + "!\n\n" + winner);
 
 
-  function getScore () {
+  const getScore = (compScore, playerScore) => {
   
-    if (compScore == 3) {
-      return "The computer have won!";
-    } else if (playerScore == 3) {
-      return "You won this time!";
+    if (compScore === 5) {
+      const h2 = document.createElement('h2')
+      h2.classList.add('.head2')
+      roundEnd.appendChild(h2)
+      h2.innerText = `Comp wins by ${compScore} to ${playerScore}!`
+      
+    } else if (playerScore === 5) {
+      const h3 = document.createElement('h3')
+      h3.classList.add('.head3')
+      roundEnd.appendChild(h3)
+      h3.innerText = (`You won by ${playerScore} to ${compScore}`)
     }
   }
   
