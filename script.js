@@ -59,12 +59,20 @@ let playerScore = 0;
  
 }
 
+ const updateScore = (playerScore, compScore) => {
+  playerScoreSpan.innerText = `Player Score : ${playerScore}\n` 
+  computerScoreSpan.innerText = `\nComputer Score:${compScore}`
+
+
+
+ }
 
   rockButton.addEventListener('click', () => {
 
     const PlayerSelection = 'Rock';
     const ComputerChoice = getComputerChoice();
     playRound(PlayerSelection, ComputerChoice);
+    updateScore(playerScore, compScore)
     getScore(compScore, playerScore)
 
 
@@ -77,6 +85,7 @@ let playerScore = 0;
     const PlayerSelection = 'Paper';
     const ComputerChoice = getComputerChoice();
     playRound(PlayerSelection, ComputerChoice);
+    updateScore(playerScore, compScore)
     getScore(compScore, playerScore)
     
   
@@ -87,6 +96,7 @@ let playerScore = 0;
     const PlayerSelection = 'Scissors';
     const ComputerChoice = getComputerChoice();
     playRound(PlayerSelection, ComputerChoice);
+    updateScore(playerScore, compScore)
     getScore(compScore, playerScore)
   
   })
